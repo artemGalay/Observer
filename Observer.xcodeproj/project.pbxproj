@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		D9F5E0E729472E47004455AD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9F5E0E629472E47004455AD /* AppDelegate.swift */; };
-		D9F5E0EB29472E47004455AD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9F5E0EA29472E47004455AD /* ViewController.swift */; };
+		D9F5E0EB29472E47004455AD /* Observer The Swift Dev.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9F5E0EA29472E47004455AD /* Observer The Swift Dev.swift */; };
 		D9F5E0F029472E49004455AD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D9F5E0EF29472E49004455AD /* Assets.xcassets */; };
 		D9F5E0F329472E49004455AD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D9F5E0F129472E49004455AD /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
@@ -16,10 +16,12 @@
 /* Begin PBXFileReference section */
 		D9F5E0E329472E47004455AD /* Observer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Observer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9F5E0E629472E47004455AD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		D9F5E0EA29472E47004455AD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		D9F5E0EA29472E47004455AD /* Observer The Swift Dev.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Observer The Swift Dev.swift"; sourceTree = "<group>"; };
 		D9F5E0EF29472E49004455AD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D9F5E0F229472E49004455AD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D9F5E0F429472E49004455AD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D9F5E0FD2947493C004455AD /* Observer MadiSpace.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = "Observer MadiSpace.playground"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		D9F5E0FE29474A0D004455AD /* Observer Art Kirillov.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = "Observer Art Kirillov.playground"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,13 +54,23 @@
 		D9F5E0E529472E47004455AD /* Observer */ = {
 			isa = PBXGroup;
 			children = (
-				D9F5E0E629472E47004455AD /* AppDelegate.swift */,
-				D9F5E0EA29472E47004455AD /* ViewController.swift */,
+				D9F5E0FA294740AE004455AD /* App */,
+				D9F5E0EA29472E47004455AD /* Observer The Swift Dev.swift */,
+				D9F5E0FD2947493C004455AD /* Observer MadiSpace.playground */,
+				D9F5E0FE29474A0D004455AD /* Observer Art Kirillov.playground */,
 				D9F5E0EF29472E49004455AD /* Assets.xcassets */,
 				D9F5E0F129472E49004455AD /* LaunchScreen.storyboard */,
 				D9F5E0F429472E49004455AD /* Info.plist */,
 			);
 			path = Observer;
+			sourceTree = "<group>";
+		};
+		D9F5E0FA294740AE004455AD /* App */ = {
+			isa = PBXGroup;
+			children = (
+				D9F5E0E629472E47004455AD /* AppDelegate.swift */,
+			);
+			path = App;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -131,7 +143,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D9F5E0EB29472E47004455AD /* ViewController.swift in Sources */,
+				D9F5E0EB29472E47004455AD /* Observer The Swift Dev.swift in Sources */,
 				D9F5E0E729472E47004455AD /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
