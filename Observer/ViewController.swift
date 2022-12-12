@@ -7,7 +7,50 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+protocol Observer: AnyObject {
+    func update(subject: NotificationCenters)
+}
+
+class NotificationCenters {
+    var state: Int = {
+        return Int(arc4random_uniform(10))
+    }()
+
+    private lazy var observers = [Observer]()
+
+    func subscribe(_ observer: Observer) {
+        print(#function)
+        observers.append(observer)
+    }
+
+    func unsubscribe(_ observer: Observer) {
+        guard let index = observers.firstIndex(where: { $0 === observer } ) else { return }
+        observers.remove(at: index)
+        print(#function)
+    }
+
+    func notify() {
+        print(#function)
+        observers.forEach({ $0.update(subject: self) })
+    }
+
+    func someBusinessLogic() {
+        print(#function)
+        state = Int(arc4random_uniform(10))
+        notify()
+    }
+}
+
+class ConreteObserverA: Observer {
+    func update(subject: NotificationCenters) {
+        print("ConreteObserverA \(subject.state)")
+    }
+}
+
+class ViewController: UIViewController, Observer {
+
+    let notificationCenter = NotificationCenters()
+    let observer1 = ConreteObserverA()
 
     private let outOneLabel: UILabel = {
         let label = UILabel()
@@ -20,6 +63,7 @@ class ViewController: UIViewController {
     private lazy var updateAction: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("Update", for: .normal)
+        button.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
         button.backgroundColor = .red
         button.layer.cornerRadius = 10
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -29,6 +73,7 @@ class ViewController: UIViewController {
     private lazy var subscribeSwitch: UISwitch = {
         let subscribeSwitch = UISwitch()
         subscribeSwitch.tintColor = .green
+        subscribeSwitch.addTarget(self, action: #selector(togle), for: .touchUpInside)
         subscribeSwitch.translatesAutoresizingMaskIntoConstraints = false
         return subscribeSwitch
     }()
@@ -59,5 +104,23 @@ class ViewController: UIViewController {
             subscribeSwitch.topAnchor.constraint(equalTo: updateAction.bottomAnchor, constant: 100),
             subscribeSwitch.centerXAnchor.constraint(equalTo: view.centerXAnchor),
         ])
+    }
+
+    func update(subject: NotificationCenters) {
+        outOneLabel.text = "State subject: \(subject.state)"
+    }
+
+    @objc func buttonTapped() {
+        notificationCenter.someBusinessLogic()
+    }
+
+    @objc func togle() {
+        if subscribeSwitch.isOn {
+            notificationCenter.subscribe(self)
+            notificationCenter.subscribe(observer1)
+        } else {
+            notificationCenter.unsubscribe(self)
+            notificationCenter.unsubscribe(observer1)
+        }
     }
 }
